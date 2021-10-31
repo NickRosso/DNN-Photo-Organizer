@@ -6,8 +6,14 @@ django-celery-beat>=2.2.0
 djangorestframework
 django-filter
 django-cors-headers
-torch 
-torchvision
+celery==5.1.2
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.10.0+cpu
+torchvision==0.11.1+cpu 
+torchaudio==0.10.0+cpu
 opencv-contrib-python
 pretrainedmodels
-celery==5.1.2
+munch
+tqdm
+scipy

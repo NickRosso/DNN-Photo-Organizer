@@ -26,6 +26,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./django-api:/code
+      - ./dependencies/cache:/root/.cache/torch/hub/checkpoints/nasnetalarge-a1897284.pth
     ports:
       - "8000:8000"
     depends_on:

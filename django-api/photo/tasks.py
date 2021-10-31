@@ -4,5 +4,5 @@ from celery import shared_task
 import requests
 
 @shared_task
-def test(self):
-    print("test")
+def classify_photo(photo):
+    print(photo.path)
