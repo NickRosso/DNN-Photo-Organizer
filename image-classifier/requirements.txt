@@ -1,5 +1,0 @@
-torch 
-torchvision
-opencv-contrib-python
-pretrainedmodels
-celery==5.1.2
