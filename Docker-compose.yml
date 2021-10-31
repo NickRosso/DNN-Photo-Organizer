@@ -4,7 +4,7 @@ services:
   db:
     image: postgres
     volumes:
-      - .django-api/data/db:/var/lib/postgresql/data
+      - ./psql:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -26,7 +26,6 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./django-api:/code
-      - ./dependencies/cache:/root/.cache/torch/hub/checkpoints/nasnetalarge-a1897284.pth
     ports:
       - "8000:8000"
     depends_on:
@@ -37,3 +36,6 @@ services:
     command: celery -A photo_organizer worker -B
     depends_on:
       - api
+volumes:
+    psql:
+    django-api:

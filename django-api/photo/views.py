@@ -8,5 +8,5 @@ class PhotoViewSet(viewsets.ModelViewSet):
     """
     A viewset for viewing and editing user instances.
     """
-    serializer_class = Photo_Serializer
+    serializer_class = photoSerializer
     queryset = Photo.objects.all()
