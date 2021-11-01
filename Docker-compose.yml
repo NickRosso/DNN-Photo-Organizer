@@ -33,7 +33,7 @@ services:
 
   image-classifier:
     image: django-api:latest
-    command: celery -A photo_organizer worker -B
+    command: celery -A photo_organizer worker -l INFO
     depends_on:
       - api
 volumes:
