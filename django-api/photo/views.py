@@ -23,4 +23,5 @@ class PhotoViewSet(viewsets.ModelViewSet):
     def perform_create(self, serialized_photo_object):
         serialized_photo_object.save()
         print(serialized_photo_object.data)
-        classify_photo.apply_async(args=[serialized_photo_object.data["id"]])
+        #classify_photo.apply_async(args=[serialized_photo_object.data["id"]])
+        classify_photo(serialized_photo_object.data["id"])
