@@ -4,4 +4,4 @@ from .models import Photo
 class photoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Photo
-        fields = '__all__'
+        fields = ['id', 'created_date', 'path', 'classification']

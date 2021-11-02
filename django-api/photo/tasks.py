@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals, print_function, division
 from photo_organizer.celery import app
-from .models import *
+from .models import Photo
 from celery import shared_task
 import requests
 from PIL import Image
@@ -16,6 +16,7 @@ model_names = sorted(name for name in pretrainedmodels.__dict__
     and name.islower()
     and callable(pretrainedmodels.__dict__[name]))
 
+@shared_task
 def classify_photo(photo_id):
     image = Photo.objects.get(id=photo_id)
     # Load Model
@@ -58,8 +59,3 @@ def classify_photo(photo_id):
     print("'{}' is a '{}'".format(image.path, classname))
     image.classification = classname
     image.save()
-
-
-@shared_task
-def celery_process_image(photo_id):
-    classify_photo(photo_id)
